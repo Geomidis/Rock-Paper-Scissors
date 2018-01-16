@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+$scanLineWidth: 1px;
+
+.App, button {
+	font-family: 'Press Start 2P', cursive;
+	font-size: 12px;
+	color: white;
+	text-transform: uppercase;
+}
+
+.App {
+	width: 100%;
+	max-width: 640px;
+	min-height: 480px;
+	background: transparent url(img/bg.png) no-repeat top left / cover;
+	margin: 30px auto 0;
+	box-sizing: border-box;
+	padding-top: 40px;
+	text-align: center;
+	position: relative;
+
+	&:after {
+		display: block;
+		content: ' ';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: -webkit-repeating-linear-gradient(top,transparent 0px,transparent $scanLineWidth,rgba(0,0,0,0.25) $scanLineWidth,rgba(0,0,0,0.25) $scanLineWidth*2);
+		-webkit-background-size: 100% $scanLineWidth*2;
+		background: -moz-repeating-linear-gradient(top,transparent 0px,transparent $scanLineWidth,rgba(0,0,0,0.25) $scanLineWidth,rgba(0,0,0,0.25) $scanLineWidth*2);
+		-moz-background-size: 100% $scanLineWidth*2;
+		pointer-events: none;
+	}
+	
+	.stats {
+		width: 100%;
+  		margin-top: 20px;
+  		display: block;
+
+  		.stat, button {
+	  		margin: 0 10px;
+	  		display: inline-block;
+  		}
+
+  		button {
+  			background: transparent;
+  			border: 0 none;
+  			outline: none;
+  			text-decoration: underline;
+  			cursor: pointer;
+
+  			&:hover {
+  				color: #ccc;
+  			}
+  		}
+	}
+
+	.actions {
+		margin-top: 50px;
+		display: block;
+
+		.cta {
+			display: block;
+			margin-bottom: 20px;
+		}
+
+		.action {
+			display: inline-block;
+			width: 90px;
+			height: 90px;
+			cursor: pointer;
+			transition: opacity 0.3s ease;
+			margin: 0 15px;
+
+			&[data-action="rock"] {
+				background: transparent url(img/action-rock.png) no-repeat top left / cover;
+			}
+			&[data-action="scissors"] {
+				background: transparent url(img/action-scissors.png) no-repeat top left / cover;
+			}
+			&[data-action="paper"] {
+				background: transparent url(img/action-paper.png) no-repeat top left / cover;
+			}
+
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+
+	.characters {
+		display: block;
+		width: 100%;
+		height: 170px;
+		position: absolute;
+		bottom: 40px;
+
+		> div {
+			display: inline-block;
+			width: 30%;
+			height: 170px;
+			box-sizing: border-box;
+
+			&.alex {
+				margin: 0 0 0 20%;
+				background: transparent url(img/alex.png) no-repeat left bottom / auto 100px;
+				
+				&[data-action="rock"] {
+					background: transparent url(img/alex-rock.png) no-repeat left bottom / auto 100px;
+				}
+				&[data-action="paper"] {
+					background: transparent url(img/alex-paper.png) no-repeat left bottom / auto 100px;
+				}
+				&[data-action="scissors"] {
+					background: transparent url(img/alex-scissors.png) no-repeat left bottom / auto 100px;
+				}
+			}
+			&.boss {
+				margin: 0 20% 0 0;
+				background: transparent url(img/boss.png) no-repeat right bottom / auto 169px;
+
+				&[data-action="rock"] {
+					background: transparent url(img/boss-rock.png) no-repeat right bottom / auto 169px;
+				}
+				&[data-action="paper"] {
+					background: transparent url(img/boss-paper.png) no-repeat right bottom / auto 169px;
+				}
+				&[data-action="scissors"] {
+					background: transparent url(img/boss-scissors.png) no-repeat right bottom / auto 169px;
+				}
+			}
+		}
+	}
+}
